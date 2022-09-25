@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: "Montserrat", sans-serif;
+	text-decoration: none;
+}
+
+.appHeader {
+	height: 100px;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	width: 100vw;
+	padding: 80px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: start;
+}
+
+/* Tasks */
+.taskTitle {
+	font-size: 14px;
+}
+
+.taskSelected {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* Time */
+.timeTitle {
+	font-size: 14px;
+}
+
+.timeLeft {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* Task Manager */
+.date {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.day {
+	font-weight: 600;
+	font-size: 38px;
+}
+
+.myTasks {
+	margin-top: 20px;
+	list-style: none;
+}
+
+.myTasks li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.myTasks p {
+	font-size: 18px;
+}
+
+.myTasks i {
+	cursor: pointer;
+}
