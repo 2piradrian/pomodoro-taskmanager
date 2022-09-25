@@ -28,21 +28,45 @@
 						<p class="year">2022</p>
 					</div>
 				</div>
-				<form class="addTaskForm" id="addTaskForm" action="">
-					<input type="text" id="addTaskInp" class="addTaskInp" />
-					<button type="submit" id="addTaskBtn" class="addTaskBtn">+</button>
-				</form>
+				<button class="openModalTask">Añadir una tarea...</button>
 				<div class="taskContainer">
 					<ul class="myTasks">
 						<li data-id="0">
-							<i class="fa-solid fa-ellipsis-vertical"></i>
-							<p>Estilar pomodoro.</p>
+							<div>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+								<p>Estilar pomodoro.</p>
+							</div>
 							<i class="fa-solid fa-arrow-right"></i>
 						</li>
 					</ul>
 				</div>
 			</section>
 		</main>
+		<div class="modalContainer">
+			<div class="modalCard">
+				<i class="fa-solid fa-x closeModal"></i>
+				<div>
+					<h2>¡Muy bien, añadamos una tarea!</h2>
+					<form class="addTaskForm" id="addTaskForm" action="">
+						<div class="manualInputs">
+							<div class="inputContainer">
+								<label for="addTaskName">Nombre de la tarea:</label>
+								<input type="text" id="addTaskName" class="addTaskInp" />
+							</div>
+							<div class="inputContainer">
+								<label for="addTaskTime">Tiempo entre descansos:</label>
+								<input type="number" id="addTaskTime" class="addTaskInp" />
+							</div>
+							<div class="inputContainer">
+								<label for="addTaskBreak">Tiempo de descanso:</label>
+								<input type="number" id="addTaskBreak" class="addTaskInp" />
+							</div>
+							<button type="submit" id="addTaskBtn" class="addTaskBtn">+</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 		<script src="/js/const.js"></script>
 		<script src="/js/main.js"></script>
 	</body>

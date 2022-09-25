@@ -62,14 +62,25 @@ body {
 }
 
 .myTasks {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 	margin-top: 20px;
 	list-style: none;
 }
 
-.myTasks li {
+.myTasks div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 10px;
+}
+
+.myTasks li {
+	width: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	gap: 10px;
 }
 
@@ -79,4 +90,55 @@ body {
 
 .myTasks i {
 	cursor: pointer;
+}
+
+/* Modal */
+.modalContainer {
+	height: 100%;
+	width: 100%;
+	display: none;
+	justify-content: center;
+	position: fixed;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: white;
+}
+
+.modalCard {
+	height: 400px;
+	width: 80%;
+	padding: 50px;
+	border: 1px solid black;
+}
+
+.modalCard h2 {
+	margin-bottom: 10px;
+}
+
+.modalCard form {
+	display: flex;
+	gap: 10px;
+}
+
+.manualInputs {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.addTaskInp {
+	width: 400px;
+}
+
+.closeModal {
+	cursor: pointer;
+	position: relative;
+	left: 100%;
+	font-size: 25px;
 }
