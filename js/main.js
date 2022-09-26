@@ -45,6 +45,7 @@ const isTaskValid = (taskName) => {
 	if (!taskName.length) {
 		return false;
 	} else if (tasks.some((task) => task.name.toUpperCase() === taskName.toUpperCase())) {
+		alert("Esa tarea ya existe");
 		return false;
 	}
 
@@ -85,10 +86,8 @@ const updateObj = (name, taskToEdit) => {
 	taskToEdit[0].name = $editTaskName.value;
 	taskToEdit[0].time = $editTaskTime.value;
 	taskToEdit[0].break = $editTaskBreak.value;
-	console.log(taskToEdit);
 	tasks = tasks.map((task) => {
 		if (task.name === name) {
-			console.log(taskToEdit[0]);
 			return taskToEdit[0];
 		} else {
 			return task;
@@ -107,6 +106,10 @@ const editTask = (name) => {
 	$editTaskBreak.value = taskToEdit[0].break;
 	$editTaskForm.addEventListener("submit", (e) => {
 		e.preventDefault();
+		console.log(taskToEdit);
+		console.log("pre");
+		if (!isTaskValid($editTaskName.value)) return;
+		console.log("post");
 		updateObj(name, taskToEdit);
 		closeModal($editTaskModal);
 	});
