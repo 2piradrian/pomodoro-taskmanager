@@ -36,19 +36,18 @@ const createTaskObj = () => {
 		round: 0,
 		color: null,
 	};
-	closeModal();
+	closeModal($modalContainer);
 	return obj;
 };
 
 // Funcion para validar la task
 const isTaskValid = (taskName) => {
 	if (!taskName.length) {
-		alert("You can't enter empty tasks");
 		return false;
 	} else if (tasks.some((task) => task.name.toUpperCase() === taskName.toUpperCase())) {
-		alert("That task already exists");
 		return false;
 	}
+
 	return true;
 };
 
@@ -71,15 +70,24 @@ const submenu = (e) => {
 	const name = e.target.dataset.id;
 	const $submenuId = document.getElementById(name);
 
-	displaySubmenu($submenuId);
+	displaySubmenu($submenuId, name);
+};
+
+// Funcion para borrar la tarea
+const deleteTask = (name) => {
+	console.log(1);
+	tasks = tasks.filter((task) => task.name !== name);
+	saveToLocalStorage(tasks);
+	showList(tasks);
 };
 
 // Funcion para editar la tarea
-
-// Funcion para borrar la tarea
+const editTask = (name) => {
+	console.log(name);
+};
 
 // Funcion para mostrar y ocultar el submenu
-const displaySubmenu = ($submenuId) => {
+const displaySubmenu = ($submenuId, name) => {
 	$submenuId.style.display = "flex";
 	$body.addEventListener("click", (e) => {
 		if (!e.target.classList.contains("submenu")) {
@@ -87,14 +95,18 @@ const displaySubmenu = ($submenuId) => {
 		}
 	});
 	$submenuId.addEventListener("click", (e) => {
-		e.target.classList.contains("editTask") ? editTask() : deleteTask();
+		e.target.classList.contains("editTask") ? editTask(name) : deleteTask(name);
 	});
 };
 
 const init = () => {
 	showList(tasks);
-	$openModalTask.addEventListener("click", openModal);
-	$closeModal.addEventListener("click", closeModal);
+	$openModalTask.addEventListener("click", () => {
+		openModal($modalContainer);
+	});
+	$closeModal.addEventListener("click", () => {
+		closeModal($modalContainer);
+	});
 	$addTaskForm.addEventListener("submit", addTask);
 	$myTasks.addEventListener("click", submenu);
 };

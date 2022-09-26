@@ -43,15 +43,15 @@
 						<div class="manualInputs">
 							<div class="inputContainer">
 								<label for="addTaskName">Nombre de la tarea:</label>
-								<input type="text" id="addTaskName" class="addTaskInp" />
+								<input type="text" id="addTaskName" class="addTaskInp" required />
 							</div>
 							<div class="inputContainer">
 								<label for="addTaskTime">Tiempo entre descansos: (en minutos).</label>
-								<input type="number" id="addTaskTime" class="addTaskInp" min="1" max="59" />
+								<input type="number" id="addTaskTime" class="addTaskInp" min="1" max="59" required />
 							</div>
 							<div class="inputContainer">
 								<label for="addTaskBreak">Tiempo de descanso: (en minutos).</label>
-								<input type="number" id="addTaskBreak" class="addTaskInp" min="1" max="59" />
+								<input type="number" id="addTaskBreak" class="addTaskInp" min="1" max="59" required />
 							</div>
 							<button type="submit" id="addTaskBtn" class="addTaskBtn">Añadir tarea 🥸</button>
 						</div>
