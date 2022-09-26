@@ -10,11 +10,11 @@ const renderList = (task) => {
 	return `
 		<li>
 			<div class="taskName">
-				<i class="fa-solid fa-ellipsis-vertical submenu" data-id="${task.name}"></i>
+				<i class="fa-solid fa-ellipsis-vertical submenu" data-id="${task.name}-${task.time}-${task.break}"></i>
 				<p>${task.name}</p>
 			</div>
 			<i class="fa-solid fa-arrow-right"></i>
-			<div class="options" id="${task.name}">
+			<div class="options" id="${task.name}-${task.time}-${task.break}">
 				<p class="editTask">Editar tarea</p>
 				<p class="deleteTask">Borrar tarea</p>
 			</div>
@@ -33,33 +33,21 @@ const createTaskObj = () => {
 		name: $addTaskInp.value.trim(),
 		time: $addTaskTime.value.trim(),
 		break: $addTaskBreak.value.trim(),
+		timeLeft: 0,
 		round: 0,
 		color: null,
 	};
-	closeModal($addTaskModal);
 	return obj;
-};
-
-// Funcion para validar la task
-const isTaskValid = (taskName) => {
-	if (!taskName.length) {
-		return false;
-	} else if (tasks.some((task) => task.name.toUpperCase() === taskName.toUpperCase())) {
-		alert("Esa tarea ya existe");
-		return false;
-	}
-
-	return true;
 };
 
 // Funcion para añadir una tarea al taskManager
 const addTask = (e) => {
 	e.preventDefault();
-	const taskName = $addTaskInp.value.trim();
-	if (!isTaskValid(taskName)) return;
 
 	const taskObj = createTaskObj();
 	tasks = [...tasks, taskObj];
+
+	closeModal($addTaskModal);
 	saveToLocalStorage(tasks);
 	showList(tasks);
 };
@@ -68,26 +56,32 @@ const addTask = (e) => {
 const submenu = (e) => {
 	if (!e.target.classList.contains("submenu")) return;
 
-	const name = e.target.dataset.id;
-	const $submenuId = document.getElementById(name);
+	const id = e.target.dataset.id;
+	const data = id.split("-");
+	const $submenuId = document.getElementById(id);
 
-	displaySubmenu($submenuId, name);
+	displaySubmenu($submenuId, data);
+};
+
+// Funcion para comprobar si la data es coincidente
+const isDataValid = (data, task) => {
+	return task.name === data[0] && task.time === data[1] && task.break === data[2];
 };
 
 // Funcion para borrar la tarea
-const deleteTask = (name) => {
-	tasks = tasks.filter((task) => task.name !== name);
+const deleteTask = (data) => {
+	tasks = tasks.filter((task) => !isDataValid(data, task));
 	saveToLocalStorage(tasks);
 	showList(tasks);
 };
 
 // Funcion para actualizar el objeto
-const updateObj = (name, taskToEdit) => {
-	taskToEdit[0].name = $editTaskName.value;
-	taskToEdit[0].time = $editTaskTime.value;
-	taskToEdit[0].break = $editTaskBreak.value;
+const updateObj = (data, taskToEdit) => {
+	taskToEdit[0].name = $editTaskName.value.trim();
+	taskToEdit[0].time = $editTaskTime.value.trim();
+	taskToEdit[0].break = $editTaskBreak.value.trim();
 	tasks = tasks.map((task) => {
-		if (task.name === name) {
+		if (isDataValid(data, task)) {
 			return taskToEdit[0];
 		} else {
 			return task;
@@ -98,21 +92,23 @@ const updateObj = (name, taskToEdit) => {
 };
 
 // Funcion para editar la tarea
-const editTask = (name) => {
-	const taskToEdit = tasks.filter((task) => task.name === name);
+const editTask = (data) => {
 	openModal($editTaskModal);
+	const taskToEdit = tasks.filter((task) => isDataValid(data, task));
+
 	$editTaskName.value = taskToEdit[0].name;
 	$editTaskTime.value = taskToEdit[0].time;
 	$editTaskBreak.value = taskToEdit[0].break;
+
 	$editTaskForm.addEventListener("submit", (e) => {
 		e.preventDefault();
-		updateObj(name, taskToEdit);
+		updateObj(data, taskToEdit);
 		closeModal($editTaskModal);
 	});
 };
 
 // Funcion para mostrar y ocultar el submenu
-const displaySubmenu = ($submenuId, name) => {
+const displaySubmenu = ($submenuId, data) => {
 	$submenuId.style.display = "flex";
 	$body.addEventListener("click", (e) => {
 		if (!e.target.classList.contains("submenu")) {
@@ -120,9 +116,11 @@ const displaySubmenu = ($submenuId, name) => {
 		}
 	});
 	$submenuId.addEventListener("click", (e) => {
-		e.target.classList.contains("editTask") ? editTask(name) : deleteTask(name);
+		e.target.classList.contains("editTask") ? editTask(data) : deleteTask(data);
 	});
 };
+
+// Funcion que verifica si hay tareas
 
 const init = () => {
 	showList(tasks);
@@ -135,6 +133,7 @@ const init = () => {
 	$closeModalEdit.addEventListener("click", () => {
 		closeModal($editTaskModal);
 	});
+
 	$addTaskForm.addEventListener("submit", addTask);
 	$myTasks.addEventListener("click", submenu);
 };
