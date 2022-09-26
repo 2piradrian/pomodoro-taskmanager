@@ -2,6 +2,7 @@ const $body = document.querySelector("body");
 // Timer
 const $taskSelected = document.querySelector(".taskSelected");
 const $timeLeft = document.querySelector(".timeLeft");
+const $breakLeft = document.querySelector(".breakLeft");
 
 // Task Manager
 const $day = document.querySelector(".day");
