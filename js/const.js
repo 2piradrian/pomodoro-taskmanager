@@ -8,29 +8,21 @@ const $day = document.querySelector(".day");
 const $month = document.querySelector(".month");
 const $year = document.querySelector(".year");
 
-const $addTaskForm = document.querySelector(".addTaskForm");
 const $addTaskInp = document.querySelector(".addTaskInp");
 const $addTaskBtn = document.querySelector(".addTaskBtn");
 
+//Task Conteiner
 const $myTasks = document.querySelector(".myTasks");
 const $modalContainer = document.querySelector(".modalContainer");
 
-const $openModalTask = document.querySelector(".openModalTask");
+// Modal Form
 const $closeModal = document.querySelector(".fa-x");
+const $openModalTask = document.querySelector(".openModalTask");
+const $addTaskForm = document.querySelector(".addTaskForm");
+const $addTaskName = document.getElementById("addTaskName");
+const $addTaskTime = document.getElementById("addTaskTime");
+const $addTaskBreak = document.getElementById("addTaskBreak");
 
-const openModal = () => {
-	$modalContainer.style.display = "flex";
-	$body.style.position = "static";
-	$body.style.heigth = "100%";
-	$body.style.overflow = "hidden";
-};
-
-const closeModal = () => {
-	$modalContainer.style.display = "none";
-	$body.style.position = "inherit";
-	$body.style.heigth = "auto";
-	$body.style.overflow = "visible";
-};
-
-$openModalTask.addEventListener("click", openModal);
-$closeModal.addEventListener("click", closeModal);
+//Options
+const $editTask = document.getElementById("editTask");
+const $deleteTask = document.getElementById("deleteTask");

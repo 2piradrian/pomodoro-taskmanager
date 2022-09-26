@@ -30,15 +30,7 @@
 				</div>
 				<button class="openModalTask">Añadir una tarea...</button>
 				<div class="taskContainer">
-					<ul class="myTasks">
-						<li data-id="0">
-							<div>
-								<i class="fa-solid fa-ellipsis-vertical"></i>
-								<p>Estilar pomodoro.</p>
-							</div>
-							<i class="fa-solid fa-arrow-right"></i>
-						</li>
-					</ul>
+					<ul class="myTasks"></ul>
 				</div>
 			</section>
 		</main>
@@ -54,20 +46,21 @@
 								<input type="text" id="addTaskName" class="addTaskInp" />
 							</div>
 							<div class="inputContainer">
-								<label for="addTaskTime">Tiempo entre descansos:</label>
-								<input type="number" id="addTaskTime" class="addTaskInp" />
+								<label for="addTaskTime">Tiempo entre descansos: (en minutos).</label>
+								<input type="number" id="addTaskTime" class="addTaskInp" min="1" max="59" />
 							</div>
 							<div class="inputContainer">
-								<label for="addTaskBreak">Tiempo de descanso:</label>
-								<input type="number" id="addTaskBreak" class="addTaskInp" />
+								<label for="addTaskBreak">Tiempo de descanso: (en minutos).</label>
+								<input type="number" id="addTaskBreak" class="addTaskInp" min="1" max="59" />
 							</div>
-							<button type="submit" id="addTaskBtn" class="addTaskBtn">+</button>
+							<button type="submit" id="addTaskBtn" class="addTaskBtn">Añadir tarea 🥸</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 		<script src="/js/const.js"></script>
+		<script src="/js/utils.js"></script>
 		<script src="/js/main.js"></script>
 	</body>
 </html>
