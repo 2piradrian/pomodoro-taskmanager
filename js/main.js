@@ -106,10 +106,6 @@ const editTask = (name) => {
 	$editTaskBreak.value = taskToEdit[0].break;
 	$editTaskForm.addEventListener("submit", (e) => {
 		e.preventDefault();
-		console.log(taskToEdit);
-		console.log("pre");
-		if (!isTaskValid($editTaskName.value)) return;
-		console.log("post");
 		updateObj(name, taskToEdit);
 		closeModal($editTaskModal);
 	});
