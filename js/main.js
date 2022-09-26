@@ -85,7 +85,7 @@ const updateObj = (name, taskToEdit) => {
 	taskToEdit[0].name = $editTaskName.value;
 	taskToEdit[0].time = $editTaskTime.value;
 	taskToEdit[0].break = $editTaskBreak.value;
-
+	console.log(taskToEdit);
 	tasks = tasks.map((task) => {
 		if (task.name === name) {
 			console.log(taskToEdit[0]);
@@ -100,7 +100,7 @@ const updateObj = (name, taskToEdit) => {
 
 // Funcion para editar la tarea
 const editTask = (name) => {
-	taskToEdit = tasks.filter((task) => task.name === name);
+	const taskToEdit = tasks.filter((task) => task.name === name);
 	openModal($editTaskModal);
 	$editTaskName.value = taskToEdit[0].name;
 	$editTaskTime.value = taskToEdit[0].time;
