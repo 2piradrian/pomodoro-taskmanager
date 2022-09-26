@@ -50,6 +50,7 @@ const addTask = (e) => {
 	closeModal($addTaskModal);
 	saveToLocalStorage(tasks);
 	showList(tasks);
+	weHaveWork();
 };
 
 // Funcion de opciones de submenu
@@ -73,6 +74,7 @@ const deleteTask = (data) => {
 	tasks = tasks.filter((task) => !isDataValid(data, task));
 	saveToLocalStorage(tasks);
 	showList(tasks);
+	weHaveWork();
 };
 
 // Funcion para actualizar el objeto
@@ -121,9 +123,16 @@ const displaySubmenu = ($submenuId, data) => {
 };
 
 // Funcion que verifica si hay tareas
-
+const weHaveWork = () => {
+	if (tasks.length === 0) {
+		$noWork.style.display = "block";
+	} else {
+		$noWork.style.display = "none";
+	}
+};
 const init = () => {
 	showList(tasks);
+	weHaveWork();
 	$openModalTask.addEventListener("click", () => {
 		openModal($addTaskModal);
 	});

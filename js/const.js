@@ -13,6 +13,7 @@ const $addTaskBtn = document.querySelector(".addTaskBtn");
 
 // Task Conteiner
 const $myTasks = document.querySelector(".myTasks");
+const $noWork = document.querySelector(".noWork");
 
 // Edit Task
 const $editTaskModal = document.querySelector(".editTask-modalContainer");

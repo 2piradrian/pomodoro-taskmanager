@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
-
+:root {
+	--mainColor: #48435c;
+	--secondary: #5a5766;
+	--contrast: #f9f9f9;
+	--background: #1c1c1c;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -12,6 +17,15 @@ body {
 	width: 100vw;
 	font-family: "Montserrat", sans-serif;
 	text-decoration: none;
+	color: var(--contrast);
+	background-color: var(--background);
+}
+
+section {
+	width: 500px;
+	height: 400px;
+	padding: 20px;
+	border: 5px solid var(--contrast);
 }
 
 .appHeader {
@@ -52,6 +66,9 @@ body {
 }
 
 /* Task Manager */
+.noWork {
+	display: block;
+}
 .date {
 	display: flex;
 	align-items: center;
@@ -102,8 +119,8 @@ body {
 	top: 40px;
 	left: 0px;
 	padding: 5px;
-	background-color: white;
-	border: 1px solid black;
+	background-color: var(--background);
+	border: 1px solid var(--contrast);
 	z-index: 2;
 }
 
@@ -111,7 +128,7 @@ body {
 	cursor: pointer;
 }
 .options p:hover {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--contrast);
 }
 
 /* Modal */
@@ -125,14 +142,15 @@ body {
 	left: 0;
 	top: 0;
 	overflow: auto;
-	background-color: white;
+	background-color: var(--background);
 }
 
 .modalCard {
+	max-width: 1100px;
 	height: 400px;
 	width: 80%;
 	padding: 50px;
-	border: 1px solid black;
+	border: 5px solid var(--contrast);
 }
 
 .modalCard h2 {
@@ -162,5 +180,6 @@ body {
 	cursor: pointer;
 	position: relative;
 	left: 100%;
+	bottom: 15px;
 	font-size: 25px;
 }
