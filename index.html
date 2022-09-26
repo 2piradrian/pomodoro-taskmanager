@@ -34,9 +34,9 @@
 				</div>
 			</section>
 		</main>
-		<div class="modalContainer">
+		<div class="addTask-modalContainer modalContainer">
 			<div class="modalCard">
-				<i class="fa-solid fa-x closeModal"></i>
+				<i class="fa-solid fa-x closeModal closeModalAdd"></i>
 				<div>
 					<h2>¡Muy bien, añadamos una tarea!</h2>
 					<form class="addTaskForm" id="addTaskForm" action="">
@@ -54,6 +54,31 @@
 								<input type="number" id="addTaskBreak" class="addTaskInp" min="1" max="59" required />
 							</div>
 							<button type="submit" id="addTaskBtn" class="addTaskBtn">Añadir tarea 🥸</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="editTask-modalContainer modalContainer">
+			<div class="modalCard">
+				<i class="fa-solid fa-x closeModal closeModalEdit"></i>
+				<div>
+					<h2>¡Muy bien, editemos esa tarea!</h2>
+					<form class="editTaskForm" id="editTaskForm" action="">
+						<div class="manualInputs">
+							<div class="inputContainer">
+								<label for="editTaskName">Nombre de la tarea:</label>
+								<input type="text" id="editTaskName" class="editTaskInp" required />
+							</div>
+							<div class="inputContainer">
+								<label for="editTaskTime">Tiempo entre descansos: (en minutos).</label>
+								<input type="number" id="editTaskTime" class="editTaskInp" min="1" max="59" required />
+							</div>
+							<div class="inputContainer">
+								<label for="editTaskBreak">Tiempo de descanso: (en minutos).</label>
+								<input type="number" id="editTaskBreak" class="editTaskInp" min="1" max="59" required />
+							</div>
+							<button type="submit" id="editTaskBtn" class="editTaskBtn">Editar tarea 🥸</button>
 						</div>
 					</form>
 				</div>

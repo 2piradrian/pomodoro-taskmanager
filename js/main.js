@@ -36,7 +36,7 @@ const createTaskObj = () => {
 		round: 0,
 		color: null,
 	};
-	closeModal($modalContainer);
+	closeModal($addTaskModal);
 	return obj;
 };
 
@@ -75,15 +75,41 @@ const submenu = (e) => {
 
 // Funcion para borrar la tarea
 const deleteTask = (name) => {
-	console.log(1);
 	tasks = tasks.filter((task) => task.name !== name);
+	saveToLocalStorage(tasks);
+	showList(tasks);
+};
+
+// Funcion para actualizar el objeto
+const updateObj = (name, taskToEdit) => {
+	taskToEdit[0].name = $editTaskName.value;
+	taskToEdit[0].time = $editTaskTime.value;
+	taskToEdit[0].break = $editTaskBreak.value;
+
+	tasks = tasks.map((task) => {
+		if (task.name === name) {
+			console.log(taskToEdit[0]);
+			return taskToEdit[0];
+		} else {
+			return task;
+		}
+	});
 	saveToLocalStorage(tasks);
 	showList(tasks);
 };
 
 // Funcion para editar la tarea
 const editTask = (name) => {
-	console.log(name);
+	taskToEdit = tasks.filter((task) => task.name === name);
+	openModal($editTaskModal);
+	$editTaskName.value = taskToEdit[0].name;
+	$editTaskTime.value = taskToEdit[0].time;
+	$editTaskBreak.value = taskToEdit[0].break;
+	$editTaskForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		updateObj(name, taskToEdit);
+		closeModal($editTaskModal);
+	});
 };
 
 // Funcion para mostrar y ocultar el submenu
@@ -102,10 +128,13 @@ const displaySubmenu = ($submenuId, name) => {
 const init = () => {
 	showList(tasks);
 	$openModalTask.addEventListener("click", () => {
-		openModal($modalContainer);
+		openModal($addTaskModal);
 	});
-	$closeModal.addEventListener("click", () => {
-		closeModal($modalContainer);
+	$closeModalTask.addEventListener("click", () => {
+		closeModal($addTaskModal);
+	});
+	$closeModalEdit.addEventListener("click", () => {
+		closeModal($editTaskModal);
 	});
 	$addTaskForm.addEventListener("submit", addTask);
 	$myTasks.addEventListener("click", submenu);

@@ -11,13 +11,23 @@ const $year = document.querySelector(".year");
 const $addTaskInp = document.querySelector(".addTaskInp");
 const $addTaskBtn = document.querySelector(".addTaskBtn");
 
-//Task Conteiner
+// Task Conteiner
 const $myTasks = document.querySelector(".myTasks");
-const $modalContainer = document.querySelector(".modalContainer");
+
+// Edit Task
+const $editTaskModal = document.querySelector(".editTask-modalContainer");
+const $closeModalEdit = document.querySelector(".closeModalEdit");
+
+const $editTaskForm = document.querySelector(".editTaskForm");
+const $editTaskName = document.getElementById("editTaskName");
+const $editTaskTime = document.getElementById("editTaskTime");
+const $editTaskBreak = document.getElementById("editTaskBreak");
 
 // Modal Form
-const $closeModal = document.querySelector(".fa-x");
+const $addTaskModal = document.querySelector(".addTask-modalContainer");
+const $closeModalTask = document.querySelector(".closeModalAdd");
 const $openModalTask = document.querySelector(".openModalTask");
+
 const $addTaskForm = document.querySelector(".addTaskForm");
 const $addTaskName = document.getElementById("addTaskName");
 const $addTaskTime = document.getElementById("addTaskTime");
