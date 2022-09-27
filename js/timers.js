@@ -35,6 +35,13 @@ const timer = () => {
 		clearInterval(timerIsOn);
 		timerIsOn = false;
 	}
+
+	// Notificar cambio de tiempo
+	if ($timeM.textContent === "00" && $timeS.textContent === "01") {
+		notify("¡Muy bien!", "Momento de descansar 😎", "/assets/coffee-cup.png");
+	} else if ($breakM.textContent === "00" && $breakS.textContent === "01") {
+		notify("El descanso a terminado", "Momento de volver 🥸", "/assets/brain.png");
+	}
 };
 
 $play.addEventListener("click", () => {
