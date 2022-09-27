@@ -104,7 +104,10 @@ section {
 	border: 0px;
 	background: none;
 }
-
+.semicolon {
+	display: flex;
+	justify-content: center;
+}
 /* Task Manager */
 
 .noWork {
@@ -167,7 +170,7 @@ section {
 }
 
 .myTasks p {
-	font-size: 18px;
+	font-size: 15px;
 }
 
 .myTasks i {
@@ -204,6 +207,7 @@ section {
 	justify-content: center;
 	position: fixed;
 	padding-top: 100px;
+	z-index: 5;
 	left: 0;
 	top: 0;
 	overflow: auto;
