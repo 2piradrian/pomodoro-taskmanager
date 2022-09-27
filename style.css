@@ -270,6 +270,31 @@ section {
 	gap: 5px;
 }
 
+.objectInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.moreInfo {
+	height: 140px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.moreInfo div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	font-weight: 700;
+}
+
+.moreInfo i {
+	font-size: 28px;
+}
+
 footer {
 	height: 300px;
 }
