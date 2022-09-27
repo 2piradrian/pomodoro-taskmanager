@@ -210,9 +210,10 @@ section {
 	background-color: var(--background);
 }
 .modalCard {
+	position: relative;
 	height: 400px;
-	width: 80%;
-	padding: 20px;
+	width: 90%;
+	padding: 25px;
 	border: 4px solid transparent;
 	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2)) 1;
 	display: flex;
@@ -221,7 +222,17 @@ section {
 	justify-content: center;
 }
 
+.modalCard i {
+	font-size: 30px;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	right: 0;
+	transform: matrix(50%, 50%);
+	cursor: pointer;
+}
 .modalCard h2 {
+	font-size: 18px;
 	margin-bottom: 20px;
 }
 
@@ -231,6 +242,20 @@ section {
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
+}
+
+.modalCard input {
+	height: 30px;
+	outline: none;
+}
+
+.modalCard button {
+	cursor: pointer;
+	border: none;
+	font-weight: 600;
+	height: 30px;
+	border-radius: 8px;
+	background: linear-gradient(to right, var(--terciary1), var(--terciary2));
 }
 
 .manualInputs {
@@ -247,4 +272,46 @@ section {
 
 footer {
 	height: 300px;
+}
+
+input {
+	text-align: center;
+}
+
+@media only screen and (min-width: 950px) {
+	.content {
+		max-width: 1400px;
+		align-items: flex-start;
+		flex-direction: row;
+	}
+	.modalCard {
+		width: 70%;
+		max-width: 1200px;
+	}
+	.modalCard i {
+		margin: 20px;
+		top: 0;
+		right: 10;
+		left: inherit;
+	}
+	.dataContainer {
+		height: 100px;
+		width: 100%;
+		padding: 10px;
+		background-color: var(--background);
+		z-index: 2;
+		top: 0;
+		left: 0;
+		position: sticky;
+	}
+	.taskManager {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		height: 450px;
+		overflow: scroll;
+	}
+	.date p {
+		font-size: 22px;
+	}
 }
