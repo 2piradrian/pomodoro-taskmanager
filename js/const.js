@@ -4,6 +4,10 @@ const $taskSelected = document.querySelector(".taskSelected");
 const $timeLeft = document.querySelector(".timeLeft");
 const $breakLeft = document.querySelector(".breakLeft");
 
+const $stop = document.querySelector(".stop");
+const $pause = document.querySelector(".pause");
+const $play = document.querySelector(".play");
+
 // Task Manager
 const $day = document.querySelector(".day");
 const $month = document.querySelector(".month");

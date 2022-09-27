@@ -10,7 +10,7 @@ const renderList = (task) => {
 	return `
 		<li>
 			<div class="taskName">
-				<i class="fa-solid fa-ellipsis-vertical submenu" data-id="${task.name}-${task.time}-${task.break}"></i>
+			<i class="fa-solid fa-gears submenu" data-id="${task.name}-${task.time}-${task.break}"></i>
 				<p>${task.name}</p>
 			</div>
 			<i class="fa-solid fa-arrow-right"></i>

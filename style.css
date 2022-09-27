@@ -4,6 +4,8 @@
 	--secondary: #5a5766;
 	--contrast: #f9f9f9;
 	--background: #1c1c1c;
+	--terciary1: #ff5f6d;
+	--terciary2: #ffc371;
 }
 
 * {
@@ -42,14 +44,207 @@ body {
 }
 
 section {
-	height: 500px;
 	width: 360px;
 	padding: 10px;
-	border: 5px solid var(--contrast);
+	border: 4px solid transparent;
+	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2)) 1;
 }
 
 /* Section timer */
 
+.timer {
+	height: 300px;
+	position: relative;
+}
+
+.timeLeftContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.taskTitle {
+	margin-top: 20px;
+	font-size: 12px;
+}
+
 .taskSelected {
 	font-weight: 700;
+}
+
+.timeTitle {
+	font-weight: 700;
+}
+
+.breakTitle {
+	font-weight: 700;
+}
+
+.timeButtonContainer {
+	height: 100px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	right: 0%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.timeButtonContainer button {
+	font-size: 32px;
+	color: var(--contrast);
+	cursor: pointer;
+	border: 0px;
+	background: none;
+}
+
+/* Task Manager */
+
+.noWork {
+	display: block;
+}
+
+.date {
+	margin: 10px;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.otherDate {
+	display: flex;
+	gap: 5px;
+}
+
+.openModalTask {
+	cursor: pointer;
+	margin: 5px;
+	border: 0;
+	border-radius: 8px;
+	padding: 5px;
+	color: var(--contrast);
+	background-color: var(--background);
+	border: 1px solid var(--terciary2);
+}
+
+.myTasks {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	margin-top: 20px;
+	list-style: none;
+}
+
+.myTasks li {
+	height: 40px;
+	width: 90%;
+	padding: 10px;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	background-color: var(--terciary1);
+}
+
+.taskName {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.myTasks p {
+	font-size: 18px;
+}
+
+.myTasks i {
+	cursor: pointer;
+}
+
+.options {
+	width: 200px;
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	padding: 5px;
+	background-color: var(--background);
+	border: 1px solid var(--contrast);
+	z-index: 2;
+}
+
+.options p {
+	font-size: 28px;
+	cursor: pointer;
+}
+.options p:hover {
+	border-bottom: 1px solid var(--contrast);
+}
+
+/* Modal */
+
+.modalContainer {
+	height: 100%;
+	width: 100%;
+	display: none;
+	justify-content: center;
+	position: fixed;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: var(--background);
+}
+.modalCard {
+	height: 400px;
+	width: 80%;
+	padding: 20px;
+	border: 4px solid transparent;
+	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2)) 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.modalCard h2 {
+	margin-bottom: 20px;
+}
+
+.modalCard form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.manualInputs {
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+footer {
+	height: 300px;
 }
