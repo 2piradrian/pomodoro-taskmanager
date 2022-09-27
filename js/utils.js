@@ -11,3 +11,16 @@ const closeModal = (modal) => {
 	$body.style.heigth = "auto";
 	$body.style.overflow = "visible";
 };
+
+const notify = (title, msg, img) => {
+	const notification = new Notification(title, {
+		icon: img,
+		body: msg,
+	});
+};
+
+const notificationPermission = () => {
+	if (Notification.permission !== "granted") {
+		Notification.requestPermission();
+	}
+};

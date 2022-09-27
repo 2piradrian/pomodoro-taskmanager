@@ -131,6 +131,7 @@ const weHaveWork = () => {
 	}
 };
 const init = () => {
+	notificationPermission();
 	showList(tasks);
 	weHaveWork();
 	$openModalTask.addEventListener("click", () => {
