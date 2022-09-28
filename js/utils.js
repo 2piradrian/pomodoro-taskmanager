@@ -13,7 +13,7 @@ const closeModal = (modal) => {
 };
 
 const notify = (title, msg, img) => {
-	const notification = new Notification(title, {
+	new Notification(title, {
 		icon: img,
 		body: msg,
 	});

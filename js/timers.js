@@ -61,6 +61,6 @@ $pause.addEventListener("click", () => {
 });
 
 const date = new Date();
-$day.textContent = date.getMonth().toDateString();
-$month.textContent = date.getDate();
+$day.textContent = date.getDate();
+$month.textContent = date.toLocaleString("es-ES", { month: "short" });
 $year.textContent = date.getFullYear();
