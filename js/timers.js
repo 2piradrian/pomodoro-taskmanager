@@ -45,6 +45,9 @@ const timer = () => {
 };
 
 $play.addEventListener("click", () => {
+	if ($dataTime.textContent === "?" && $dataBreak.textContent === "?") {
+		return alert("Primero deberias seleccionar una tarea");
+	}
 	if (!timerIsOn) {
 		timerIsOn = setInterval(timer, 1000);
 	} else {

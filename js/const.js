@@ -14,6 +14,10 @@ const $timeS = document.querySelector(".timeS");
 const $breakM = document.querySelector(".breakM");
 const $breakS = document.querySelector(".breakS");
 
+const $dataTime = document.querySelector(".data-time");
+const $dataBreak = document.querySelector(".data-break");
+const $dataRound = document.querySelector(".data-round");
+
 // Task Manager
 const $day = document.querySelector(".day");
 const $month = document.querySelector(".month");

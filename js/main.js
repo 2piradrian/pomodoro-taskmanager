@@ -13,7 +13,7 @@ const renderList = (task) => {
 			<i class="fa-solid fa-gears submenu" data-id="${task.name}-${task.time}-${task.break}"></i>
 				<p>${task.name}</p>
 			</div>
-			<i class="fa-solid fa-arrow-right"></i>
+			<i class="fa-solid fa-arrow-right" data-id="${task.name}-${task.time}-${task.break}"></i>
 			<div class="options" id="${task.name}-${task.time}-${task.break}">
 				<p class="editTask">Editar tarea</p>
 				<p class="deleteTask">Borrar tarea</p>
@@ -53,15 +53,41 @@ const addTask = (e) => {
 	weHaveWork();
 };
 
+// Funcion que administra que boton presionaste
+const taskButtons = (e) => {
+	if (e.target.classList.contains("submenu")) {
+		submenu(e);
+	}
+	if (e.target.classList.contains("fa-arrow-right")) {
+		playTask(e);
+	}
+};
+
 // Funcion de opciones de submenu
 const submenu = (e) => {
-	if (!e.target.classList.contains("submenu")) return;
-
 	const id = e.target.dataset.id;
 	const data = id.split("-");
 	const $submenuId = document.getElementById(id);
 
 	displaySubmenu($submenuId, data);
+};
+
+// Funcion para trabajar con la tarea seleccionada
+const playTask = (e) => {
+	const id = e.target.dataset.id;
+	const data = id.split("-");
+	const taskToPlay = tasks.filter((task) => isDataValid(data, task));
+
+	$taskSelected.textContent = taskToPlay[0].name;
+
+	$dataTime.textContent = taskToPlay[0].time;
+	$dataBreak.textContent = taskToPlay[0].break;
+	$dataRound.textContent = taskToPlay[0].round;
+
+	$timeS.textContent = "00";
+	$timeM.textContent = taskToPlay[0].time;
+	$breakS.textContent = "00";
+	$breakM.textContent = taskToPlay[0].break;
 };
 
 // Funcion para comprobar si la data es coincidente
@@ -130,6 +156,21 @@ const weHaveWork = () => {
 		$noWork.style.display = "none";
 	}
 };
+
+// Funcion para detener completamente la tarea
+const killTask = () => {
+	clearInterval(timerIsOn);
+
+	$taskSelected.textContent = "Nada 😢";
+	$dataTime.textContent = "?";
+	$dataBreak.textContent = "?";
+	$dataRound.textContent = "?";
+	$timeS.textContent = "--";
+	$timeM.textContent = "--";
+	$breakS.textContent = "--";
+	$breakM.textContent = "--";
+};
+
 const init = () => {
 	notificationPermission();
 	showList(tasks);
@@ -145,6 +186,7 @@ const init = () => {
 	});
 
 	$addTaskForm.addEventListener("submit", addTask);
-	$myTasks.addEventListener("click", submenu);
+	$myTasks.addEventListener("click", taskButtons);
+	$stop.addEventListener("click", killTask);
 };
 init();
