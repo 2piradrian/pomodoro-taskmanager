@@ -1,5 +1,5 @@
 var timerIsOn = false;
-let taskObj = tasks[0];
+let taskObj;
 
 const timer = () => {
 	// Cuenta regresiva tiempo de trabajo
@@ -59,3 +59,8 @@ $pause.addEventListener("click", () => {
 	clearInterval(timerIsOn);
 	timerIsOn = false;
 });
+
+const date = new Date();
+$day.textContent = date.getMonth().toDateString();
+$month.textContent = date.getDate();
+$year.textContent = date.getFullYear();

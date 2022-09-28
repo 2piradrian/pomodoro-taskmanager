@@ -78,6 +78,8 @@ const playTask = (e) => {
 	const data = id.split("-");
 	const taskToPlay = tasks.filter((task) => isDataValid(data, task));
 
+	taskObj = taskToPlay[0];
+
 	$taskSelected.textContent = taskToPlay[0].name;
 
 	$dataTime.textContent = taskToPlay[0].time;
