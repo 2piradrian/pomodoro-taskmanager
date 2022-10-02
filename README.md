@@ -9,6 +9,8 @@ Cuenta con:
 -   Posibilidad de editar los parámetros de las tareas, para poder escalar con los tiempos, o bien simplemente cambiarle el nombre.
 -   Sistema de notificación de escritorio, el cual te avisará si ha finalizado tu tiempo de concentración o estudio aunque tengas el navegador minimizado.
 
+Deploy: https://pomodoro-taskmanager.vercel.app/
+
 # Files
 
 main.js => 
