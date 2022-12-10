@@ -11,7 +11,7 @@ Cuenta con:
 
 Deploy: https://pomodoro-taskmanager.vercel.app/
 
-# Files
+# Files 
 
 main.js => 
 Contiene funciones que estan relacionadas con la administración de tareas.
