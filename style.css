@@ -35,7 +35,7 @@ body {
 }
 
 .content {
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -47,7 +47,8 @@ section {
 	width: 360px;
 	padding: 10px;
 	border: 4px solid transparent;
-	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2)) 1;
+	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2))
+		1;
 }
 
 /* Section timer */
@@ -219,7 +220,8 @@ section {
 	width: 90%;
 	padding: 25px;
 	border: 4px solid transparent;
-	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2)) 1;
+	border-image: linear-gradient(to right, var(--terciary1), var(--terciary2))
+		1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
